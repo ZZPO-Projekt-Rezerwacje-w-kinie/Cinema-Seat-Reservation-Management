@@ -38,6 +38,8 @@ COMMENT ON TABLE Typ_sali IS 'Tabela przechowująca informacje o typach sal kino
 COMMENT ON COLUMN Typ_sali.id_typ_sali IS 'Unikalny identyfikator typu sali';
 COMMENT ON COLUMN Typ_sali.nazwa IS 'Nazwa typu sali';
 
+
+
 CREATE TABLE Pracownik (
 	id_pracownik INT PRIMARY KEY DEFAULT nextval('seq_pracownik_id'),
 	imie TEXT NOT NULL,
