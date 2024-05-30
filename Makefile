@@ -12,3 +12,6 @@ clean:
 	cd cinema-reservation-app/ && \
 	docker-compose down && \
     mvn clean
+migrate:
+	cd cinema-reservation-app && \
+	mvn spring-boot:run -Dconsole=true

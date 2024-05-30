@@ -9,3 +9,6 @@ spring:
     hikari:
       connectionTimeout: 20000
       maximumPoolSize: 5
+  flyway:
+    locations: classpath:db/migration
+    schemas: public
