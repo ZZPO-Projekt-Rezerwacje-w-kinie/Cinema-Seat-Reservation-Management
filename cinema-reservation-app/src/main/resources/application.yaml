@@ -2,10 +2,13 @@ server:
   port: 7777
 spring:
   datasource:
-    url: jdbc:postgresql://postgresqldb:5432/cinemaseatreservation
+    url: jdbc:postgresql://localhost:5432/cinemaseatreservation
     username: user
     password: password
     driver-class-name: org.postgresql.Driver
     hikari:
       connectionTimeout: 20000
       maximumPoolSize: 5
+  flyway:
+    locations: classpath:db/migration
+    schemas: public

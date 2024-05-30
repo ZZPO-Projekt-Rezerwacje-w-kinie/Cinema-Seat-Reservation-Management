@@ -1,7 +1,6 @@
 prepare:
 	docker-compose up -d
 	bash wait.sh
-
 run:
 	cd cinema-reservation-app/ && \
     mvn clean install -DskipTests && \
@@ -12,3 +11,6 @@ clean:
 	cd cinema-reservation-app/ && \
 	docker-compose down && \
     mvn clean
+migrate:
+	cd cinema-reservation-app && \
+	mvn spring-boot:run -Dconsole=true
