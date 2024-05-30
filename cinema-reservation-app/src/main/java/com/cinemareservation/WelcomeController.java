@@ -1,13 +1,14 @@
 package com.cinemareservation;
 
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+@Controller
 public class WelcomeController {
-    @GetMapping("/welcome")
+    @GetMapping("/index")
     public String welcome(){
-        return "Welcome to Spring Boot! nad cinema reservation site";
+        return "index";
     }
 }

@@ -12,7 +12,7 @@ import lombok.*;
 @Table(name = "Typ_sali")
 public class TypSali {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Column(nullable = false)
