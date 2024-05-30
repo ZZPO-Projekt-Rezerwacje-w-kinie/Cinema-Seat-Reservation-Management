@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
 @Table(name = "Pracownik")
 public class Pracownik {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private Integer id;
 

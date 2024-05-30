@@ -13,4 +13,4 @@ clean:
     mvn clean
 migrate:
 	cd cinema-reservation-app && \
-	mvn spring-boot:run -Dconsole=true
+ 	mvn spring-boot:run -Dconsole=true -Dspring-boot.run.profiles=console-application

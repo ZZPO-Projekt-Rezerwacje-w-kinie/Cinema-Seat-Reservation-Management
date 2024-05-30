@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New Film</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+<h1>Add a New Film</h1>
+<div class="container my-5">
+    <h2 class="mb-5">New film</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <form action="#" th:action="@{/addFilm}" th:object="${film}" method="post">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="tytul" class="col-form-label">Title</label>
+                        <input type="text" th:field="*{tytul}" class="form-control" id="tytul" placeholder="Title">
+                        <span th:if="${#fields.hasErrors('tytul')}" th:errors="*{tytul}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="opis" class="col-form-label">Description</label>
+                        <input type="text" th:field="*{opis}" class="form-control" id="opis" placeholder="Description">
+                        <span th:if="${#fields.hasErrors('opis')}" th:errors="*{opis}" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="rok_produkcji" class="col-form-label">Year of Production</label>
+                        <input type="number" th:field="*{rokProdukcji}" class="form-control" id="rok_produkcji" placeholder="Year of Production">
+                        <span th:if="${#fields.hasErrors('rokProdukcji')}" th:errors="*{rokProdukcji}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="czas_trwania" class="col-form-label">Duration (in minutes)</label>
+                        <input type="number" th:field="*{czasTrwania}" class="form-control" id="czas_trwania" placeholder="Duration">
+                        <span th:if="${#fields.hasErrors('czasTrwania')}" th:errors="*{czasTrwania}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="kategoria" class="col-form-label">Category</label>
+                        <input type="text" th:field="*{kategoria}" class="form-control" id="kategoria" placeholder="Category">
+                        <span th:if="${#fields.hasErrors('kategoria')}" th:errors="*{kategoria}" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-5">
+                        <input type="submit" class="btn btn-primary" value="Add film">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

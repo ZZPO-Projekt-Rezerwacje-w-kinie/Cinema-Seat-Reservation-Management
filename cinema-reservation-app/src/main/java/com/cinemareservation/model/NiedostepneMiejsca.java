@@ -13,7 +13,7 @@ import lombok.*;
 @Table(name = "Niedostepne_Miejsca")
 public class NiedostepneMiejsca {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @ManyToOne
