@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Seans</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+<h1>Add a New Seans</h1>
+<div class="container my-5">
+    <h2 class="mb-5">New Screening</h2>
+    <form th:action="@{/addSeans}" th:object="${Seans}" method="post">
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="film" class="col-form-label">film</label>
+                <select th:field="*{film}" class="form-control" id="film">
+                    <option value="">Wybierz film</option>
+                    <option th:each="film : ${films}" th:value="${film.id}" th:text="${film.tytyl}"></option>
+                </select>
+                <span th:if="${#fields.hasErrors('film')}" th:errors="*{film}" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="sala">sala:</label>
+                <select id="sala" th:field="*{sala}" class="form-control" required>
+                    <option value="">Choose a Film</option>
+                    <option th:each="sala : ${sale}" th:value="${sala.id}" th:text="${sala.typSali.nazwa}">nazwa sali</option>
+                </select>
+                <span th:if="${#fields.hasErrors('sala.id')}" th:errors="*{sala.id}" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-md-6">
+                <label for="dataCzas">Date and Time:</label>
+                <input type="datetime-local" id="dataCzas" th:field="*{dataCzas}" class="form-control" required/>
+                <span th:if="${#fields.hasErrors('dataCzas')}" th:errors="*{dataCzas}" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mt-5">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

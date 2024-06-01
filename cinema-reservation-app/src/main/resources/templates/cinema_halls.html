@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+<div th:switch="${halls}" class="container my-5">
+    <div class="row">
+        <div class="col-md-6">
+            <h2 th:case="null">No cinema hall found</h2>
+            <div th:case="*">
+                <h2>Hall types</h2>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>adres budynku</th>
+                        <th>ilosc miejsc</th>
+                        <th>ilosc rzedow</th>
+                        <th>ilosc miejsc w rzedzie</th>
+                        <th>nazwa typu sali</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="hall : ${halls}">
+                        <td th:text="${hall.adres_budynku}">adres budynku</td>
+                        <td th:text="${hall.il_miejsc}">ilosc miejsc</td>
+                        <td th:text="${hall.il_rzedow}">ilosc rzedow</td>
+                        <td th:text="${hall.il_miejsc_w_rzedzie}">ilosc miejsc w rzedzie</td>
+                        <td th:text="${hall.typSali.nazwa}">nazwa typu sali</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="my-5"><a href="/addCinemaHallForm" class="btn btn-primary"><i class="fas fa-user-plus ml-2"></i></a></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
