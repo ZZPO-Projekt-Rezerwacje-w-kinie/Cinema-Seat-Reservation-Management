@@ -7,6 +7,7 @@ import com.cinemareservation.repository.CinemaHallRepository;
 import com.cinemareservation.repository.FilmRepository;
 import com.cinemareservation.repository.SeansRepository;
 import jakarta.validation.Valid;
+import org.hibernate.Length;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +33,13 @@ public class CinemaScreeningController {
 
     @GetMapping("/seans")
     public String showSeansList(Model model) {
+        List<Seans> seanse = seansRepository.findAll();
+        if (!seanse.isEmpty()) {
+            Seans pierwszySeans = seanse.get(0);
+            Film pierwszyFilm = pierwszySeans.getFilm();
+            System.out.println(pierwszyFilm.getTytul());
+        }
+        System.out.println(seanse.size());
         model.addAttribute("seans", seansRepository.findAll());
         return "seans";
     }
@@ -48,9 +56,11 @@ public class CinemaScreeningController {
 
     @PostMapping("/addSeans")
     public String addSeans(@Valid Seans seans, BindingResult result, Model model) {
+        System.out.println("test 1");
         if (result.hasErrors()) {
             return "add_seans";
         }
+        System.out.println("test 2");
         seansRepository.save(seans);
         return "redirect:/seans";
     }

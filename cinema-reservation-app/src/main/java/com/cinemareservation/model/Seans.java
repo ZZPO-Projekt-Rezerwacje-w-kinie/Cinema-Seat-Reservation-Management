@@ -30,4 +30,7 @@ public class Seans {
     private Sala sala;
 
 
+    public Film getFilm() {
+        return film;
+    }
 }

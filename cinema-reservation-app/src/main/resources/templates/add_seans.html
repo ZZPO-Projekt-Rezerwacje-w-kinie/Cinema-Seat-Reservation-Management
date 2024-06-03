@@ -16,7 +16,7 @@
                 <label for="film" class="col-form-label">film</label>
                 <select th:field="*{film}" class="form-control" id="film">
                     <option value="">Wybierz film</option>
-                    <option th:each="film : ${films}" th:value="${film.id}" th:text="${film.tytyl}"></option>
+                    <option th:each="film : ${films}" th:value="${film.id}" th:text="${film.tytul}"></option>
                 </select>
                 <span th:if="${#fields.hasErrors('film')}" th:errors="*{film}" class="text-danger"></span>
             </div>

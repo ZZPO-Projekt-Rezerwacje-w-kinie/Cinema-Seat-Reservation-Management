@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 </head>
 <body>
-<div th:switch="${seanse}" class="container my-5">
+<div th:switch="${seans}" class="container my-5">
     <div class="row">
         <div class="col-md-6">
             <h2 th:case="null">No cinema seans found</h2>
@@ -23,10 +23,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="seans : ${seanse}">
-                        <td th:text="${seans.film.tytul}">tyttul filmu</td>
-                        <td th:text="${seans.sala.typSali.nazwa}">nazwa sali</td>
-                        <td th:text="${seans.dataCzas}">data filmu</td>
+                    <tr th:each="seans1 : ${seans}">
+                        <td th:text="${seans1.film.tytul}">tyttul filmu</td>
+                        <td th:text="${seans1.sala.typSali.nazwa}">nazwa sali</td>
+                        <td th:text="${seans1.dataCzas}">data filmu</td>
                     </tr>
                     </tbody>
                 </table>
