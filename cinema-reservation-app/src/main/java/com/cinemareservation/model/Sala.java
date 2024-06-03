@@ -16,11 +16,11 @@ public class Sala {
     private Integer id;
 
     @Column(nullable = false)
-    private String adresBudynku;
+    private String adres_budynku;
 
-    private Integer ilMiejsc;
-    private Integer ilRzedow;
-    private Integer ilMiejscWRzedzie;
+    private Integer il_miejsc;
+    private Integer il_rzedow;
+    private Integer il_miejsc_w_rzedzie;
 
 
     //przemyslec czy dac na enum

@@ -1,12 +1,12 @@
 package com.cinemareservation.repository;
 
-import com.cinemareservation.model.Seans;
+import com.cinemareservation.model.TypSali;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
+import java.lang.reflect.Type;
+
 @Repository
-public interface SeansRepository extends JpaRepository<Seans, Integer> {
+public interface CinemaHallTypeRepository extends JpaRepository<TypSali, Integer> {
 
 }
