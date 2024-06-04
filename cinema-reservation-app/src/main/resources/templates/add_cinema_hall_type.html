@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Add New Film</title>
+    <title>Add New Cinema Hall Type</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 </head>
 <body>
-<h1>Add a Cinema hall type</h1>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Cinema Reservation</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/films">Films</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/cinemaHallTypes">Cinema Hall Types</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/cinemaHalls">Cinema Halls</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/seans">Seans</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 <div class="container my-5">
-    <h2 class="mb-5">New Cineam hall type</h2>
-    <div class="row">
-        <div class="col-md-6">
+    <h2 class="mb-4 text-center">Add a New Cinema Hall Type</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
             <form action="#" th:action="@{/addCinemaHallType}" th:object="${typSali}" method="post">
-                <div class="row">
-                    <div class="form-group col-md-6">
-                        <label for="nazwa" class="col-form-label">Title</label>
-                        <input type="text" th:field="*{nazwa}" class="form-control" id="nazwa" placeholder="Nazwa">
-                        <span th:if="${#fields.hasErrors('nazwa')}" th:errors="*{nazwa}" class="text-danger"></span>
-                    </div>
+                <div class="form-group">
+                    <label for="nazwa" class="col-form-label">Title</label>
+                    <input type="text" th:field="*{nazwa}" class="form-control" id="nazwa" placeholder="Title">
+                    <span th:if="${#fields.hasErrors('nazwa')}" th:errors="*{nazwa}" class="text-danger"></span>
                 </div>
-                <div class="row">
-                    <div class="col-md-6 mt-5">
-                        <input type="submit" class="btn btn-primary" value="Add Cineam Hall type">
-                    </div>
+                <div class="text-center mt-4">
+                    <input type="submit" class="btn btn-primary" value="Add Cinema Hall Type">
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXlY3hgvwCJ6Ys+mOU6IYZi0FIbBZuU8JN38pZj7K9I1QhG4jw/tG8pR8p4P" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4Ag3w5t3MOgZDh1Xp3r5uUnl4AgiEN0hPzJ1IBt6wq4nLvEA7b5y" crossorigin="anonymous"></script>
 </body>
 </html>

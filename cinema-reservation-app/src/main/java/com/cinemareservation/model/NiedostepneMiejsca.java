@@ -20,8 +20,8 @@ public class NiedostepneMiejsca {
     @JoinColumn(name = "id_seansu", nullable = false)
     private Seans seans;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_miejsca", nullable = false)
-    private Miejsca miejsce;
+    private Miejsce miejsce;
 
 }

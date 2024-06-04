@@ -1,6 +1,9 @@
 package com.cinemareservation.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
 
 @Entity
 @Table(name = "Film")  // Ensure this matches the actual table name in your database
@@ -13,18 +16,27 @@ public class Film {
     @GeneratedValue(strategy = GenerationType.IDENTITY)  // Use the database's auto-incrementing mechanism.
     private Integer id;
 
+
+    @NotBlank(message = "Tytuł jest obowiązkowy")
     @Column(name = "tytul", nullable = false)
     private String tytul;
 
+    @NotBlank(message = "Opis jest obowiązkowy")
     @Column(name = "opis")
     private String opis;
 
+    @NotNull(message = "Rok produkcji jest obowiązkowy")
+    @Positive(message = "Rok produkcji musi być dodatnią liczbą")
     @Column(name = "rok_produkcji")
     private Integer rokProdukcji;
 
+
+    @NotNull(message = "Czas trwania jest obowiązkowy")
+    @Positive(message = "Czas trwania musi być dodatnią liczbą")
     @Column(name = "czas_trwania")
     private Integer czasTrwania;
 
+    @NotBlank(message = "Kategoria jest obowiązkowa")
     @Column(name = "kategoria")
     private String kategoria;
 

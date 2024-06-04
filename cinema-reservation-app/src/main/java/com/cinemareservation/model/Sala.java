@@ -15,8 +15,8 @@ public class Sala {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
-    private String adres_budynku;
+    @Column(name="adres_budynku" ,nullable = false)
+    private String adresBudynku;
 
     private Integer il_miejsc;
     private Integer il_rzedow;
@@ -27,5 +27,6 @@ public class Sala {
     @ManyToOne()
     @JoinColumn(name = "id_typ_sali", nullable = false)
     private TypSali typSali;
+
 
 }

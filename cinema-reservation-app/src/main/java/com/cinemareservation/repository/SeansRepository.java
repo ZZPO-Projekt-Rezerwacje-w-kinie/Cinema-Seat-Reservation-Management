@@ -9,4 +9,7 @@ import java.util.Optional;
 @Repository
 public interface SeansRepository extends JpaRepository<Seans, Integer> {
 
+    void deleteByFilmId(Long id);
+
+    List<Seans> findByFilmId(Long id);
 }

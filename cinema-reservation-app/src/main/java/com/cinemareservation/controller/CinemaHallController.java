@@ -3,7 +3,6 @@ package com.cinemareservation.controller;
 import com.cinemareservation.model.Sala;
 import com.cinemareservation.model.TypSali;
 import com.cinemareservation.repository.CinemaHallTypeRepository;
-import com.cinemareservation.repository.MiejscaRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
