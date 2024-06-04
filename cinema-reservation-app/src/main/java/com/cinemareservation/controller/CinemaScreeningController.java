@@ -1,9 +1,11 @@
 package com.cinemareservation.controller;
 
 import com.cinemareservation.model.Film;
+import com.cinemareservation.model.Miejsca;
 import com.cinemareservation.model.Sala;
 import com.cinemareservation.model.Seans;
 import com.cinemareservation.repository.CinemaHallRepository;
+import com.cinemareservation.repository.CinemaSeatRepository;
 import com.cinemareservation.repository.FilmRepository;
 import com.cinemareservation.repository.SeansRepository;
 import jakarta.validation.Valid;
@@ -23,12 +25,14 @@ public class CinemaScreeningController {
     private final SeansRepository seansRepository;
     private final FilmRepository filmRepository;
     private final CinemaHallRepository cinemaHallRepository;
+    private final CinemaSeatRepository ciemaSeatRepository;
 
     @Autowired
-    public CinemaScreeningController(SeansRepository seansRepository, FilmRepository filmRepository, CinemaHallRepository cinemaHallRepository) {
+    public CinemaScreeningController(SeansRepository seansRepository, FilmRepository filmRepository, CinemaHallRepository cinemaHallRepository, CinemaSeatRepository cinemaSeatRepository) {
         this.seansRepository = seansRepository;
         this.filmRepository = filmRepository;
         this.cinemaHallRepository = cinemaHallRepository;
+        this.ciemaSeatRepository = cinemaSeatRepository;
     }
 
     @GetMapping("/seans")
@@ -62,6 +66,16 @@ public class CinemaScreeningController {
         }
         System.out.println("test 2");
         seansRepository.save(seans);
+        Sala sala = seans.getSala();
+        int rowsNumber = sala.getRowsNumber();
+        Integer columnsNumber = sala.getColumnsNumber();
+        System.out.println(rowsNumber+"liczba miejsc w rzedzie");
+        System.out.println(columnsNumber+"liczba miejsc w kolumie");
+        for (int i = 0; i < rowsNumber; i++) {
+            for (int j = 0; j < columnsNumber; j++) {
+                ciemaSeatRepository.save(new Miejsca(seans, i, j));
+            }
+        }
         return "redirect:/seans";
     }
 }

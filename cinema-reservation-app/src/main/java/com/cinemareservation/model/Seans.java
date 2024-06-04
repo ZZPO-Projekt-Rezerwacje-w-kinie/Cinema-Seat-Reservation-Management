@@ -33,4 +33,8 @@ public class Seans {
     public Film getFilm() {
         return film;
     }
+
+    public Sala getSala() {
+        return sala;
+    }
 }
