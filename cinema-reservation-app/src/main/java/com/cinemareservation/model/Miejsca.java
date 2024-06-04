@@ -20,7 +20,11 @@ public class Miejsca {
     private Seans seans;
 
     private Integer rzad;
-    private Integer miejsceWRzedzie;
+    private Integer miejsce_w_rzedzie;
 
-
+    public Miejsca(Seans seans, int i, int j) {
+        this.seans = seans;
+        this.rzad = i;
+        this.miejsce_w_rzedzie = j;
+    }
 }
