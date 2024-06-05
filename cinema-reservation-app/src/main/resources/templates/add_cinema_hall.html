@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add New Film</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+<h1>Add a Cinema hall</h1>
+<div class="container my-5">
+    <h2 class="mb-5">New Cineam hall</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <form action="#" th:action="@{/addCinemaHall}" th:object="${Sala}" method="post">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="adres_budynku" class="col-form-label">adres_budynku</label>
+                        <input type="text" th:field="*{adres_budynku}" class="form-control" id="adres_budynku" placeholder="adres_budynku">
+                        <span th:if="${#fields.hasErrors('adres_budynku')}" th:errors="*{adres_budynku}" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="il_miejsc" class="col-form-label">il_miejsc</label>
+                        <input type="number" th:field="*{il_miejsc}" class="form-control" id="il_miejsc" placeholder="il_miejsc">
+                        <span th:if="${#fields.hasErrors('il_miejsc')}" th:errors="*{il_miejsc}" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="il_rzedow" class="col-form-label">il_rzedow</label>
+                        <input type="number" th:field="*{il_rzedow}" class="form-control" id="il_rzedow" placeholder="il_rzedow">
+                        <span th:if="${#fields.hasErrors('il_rzedow')}" th:errors="*{il_rzedow}" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="il_miejsc_w_rzedzie" class="col-form-label">il_miejsc_w_rzedzie</label>
+                        <input type="number" th:field="*{il_miejsc_w_rzedzie}" class="form-control" id="il_miejsc_w_rzedzie" placeholder="il_miejsc_w_rzedzie">
+                        <span th:if="${#fields.hasErrors('il_miejsc_w_rzedzie')}" th:errors="*{il_miejsc_w_rzedzie}" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="typSali" class="col-form-label">Typ sali</label>
+                        <select th:field="*{typSali}" class="form-control" id="typSali">
+                            <option value="">Wybierz typ sali</option>
+                            <option th:each="typ : ${typySal}" th:value="${typ.id}" th:text="${typ.nazwa}"></option>
+                        </select>
+                        <span th:if="${#fields.hasErrors('typSali')}" th:errors="*{typSali}" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-5">
+                        <input type="submit" class="btn btn-primary" value="Add Cineam Hall type">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

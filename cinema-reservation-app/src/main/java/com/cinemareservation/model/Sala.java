@@ -1,5 +1,4 @@
 package com.cinemareservation.model;
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,29 +15,24 @@ public class Sala {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "adres_budynku", nullable = false)
-    private String adresBudynku;
+    @Column(nullable = false)
+    private String adres_budynku;
 
-    @Column(name = "il_miejsc", nullable = false)
-    private Integer ilMiejsc;
+    private int il_miejsc;
+    private int il_rzedow;
+    private int il_miejsc_w_rzedzie;
 
-    @Column(name = "il_rzedow", nullable = false)
-    private Integer ilRzedow;
 
-    @Column(name = "il_miejsc_w_rzedzie", nullable = false)
-    private Integer ilMiejscWRzedzie;
-
-    @ManyToOne
+    //przemyslec czy dac na enum
+    @ManyToOne()
     @JoinColumn(name = "id_typ_sali", nullable = false)
     private TypSali typSali;
 
-    // Metoda getRowsNumber
-    public Integer getRowsNumber() {
-        return ilRzedow;
+    public int getRowsNumber() {
+        return il_rzedow;
     }
 
-    // Metoda getColumnsNumber
-    public Integer getColumnsNumber() {
-        return ilMiejscWRzedzie;
+    public int getColumnsNumber() {
+        return il_miejsc_w_rzedzie;
     }
 }
