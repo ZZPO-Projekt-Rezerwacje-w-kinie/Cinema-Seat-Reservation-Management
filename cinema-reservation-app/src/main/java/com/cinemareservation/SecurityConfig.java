@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
@@ -21,14 +20,16 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((requests) -> requests
-                        .anyRequest().authenticated()
+                        .anyRequest().authenticated() // All endpoints require authentication
                 )
                 .formLogin((form) -> form
                         .loginPage("/login")  // Custom login page
                         .defaultSuccessUrl("/index", true)  // Redirect after successful login
-                        .permitAll()
+                        .permitAll()  // Allow everyone to see the login page
+                        .usernameParameter("login")  // Specify the name of the login field
+                        .passwordParameter("password")  // Specify the name of the password field
                 )
-                .logout(LogoutConfigurer::permitAll
+                .logout((logout) -> logout.permitAll()  // Allow everyone to perform logout
                 );
         return http.build();
     }
@@ -41,7 +42,7 @@ public class SecurityConfig {
     @Bean
     public InMemoryUserDetailsManager userDetailsService() {
         InMemoryUserDetailsManager userDetailsService = new InMemoryUserDetailsManager();
-        userDetailsService.createUser(User.withUsername("login").password(passwordEncoder().encode("admin")).roles("USER").build());
+        userDetailsService.createUser(User.withUsername("login").password(passwordEncoder().encode("password")).roles("USER").build());
         return userDetailsService;
     }
 
