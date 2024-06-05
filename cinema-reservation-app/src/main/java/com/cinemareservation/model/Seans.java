@@ -31,7 +31,7 @@ public class Seans {
     private Sala sala;
 
     @OneToMany(mappedBy = "seans", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Miejsce> miejsca;
+    private List<Miejsca> miejsca;
 
     public Film getFilm() {
         return film;
@@ -39,5 +39,9 @@ public class Seans {
 
     public Sala getSala() {
         return sala;
+    }
+
+    public Integer getId() {
+        return id;
     }
 }
