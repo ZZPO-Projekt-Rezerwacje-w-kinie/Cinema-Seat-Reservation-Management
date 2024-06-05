@@ -27,4 +27,5 @@ public class Miejsca {
         this.rzad = i;
         this.miejsce_w_rzedzie = j;
     }
+
 }

@@ -1,5 +1,6 @@
 package com.cinemareservation.controller;
 
+import com.cinemareservation.model.Miejsca;
 import com.cinemareservation.model.Sala;
 import com.cinemareservation.model.Seans;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,11 +36,17 @@ public class CinemaSeatController {
     @PostMapping("/reservationSeat")
     public String reservationSeat(@RequestParam("seansId") int seansId, Model model) {
         Seans seans = seansRepository.findById(seansId).get();
+
         Sala sala = seans.getSala();
         int rowsNumber = sala.getRowsNumber();
         int seatInRow = sala.getColumnsNumber();
         model.addAttribute("rowsNumber", rowsNumber);
         model.addAttribute("seatInRow", seatInRow);
+        //chciałbym abys storzyl liste z wszytkimi miejscami z tabeli Miejsca dla ktore sa zwiazne z id tego seansu
+        //i przekazal ja do modelu
+        List<Miejsca> miejsca = cinemaSeatRepository.findAllBySeansId(seansId);
+        System.out.println(miejsca.size());
+
         return "cinema_hall";
     }
 

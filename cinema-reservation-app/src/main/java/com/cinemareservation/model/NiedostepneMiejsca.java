@@ -22,6 +22,6 @@ public class NiedostepneMiejsca {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_miejsca", nullable = false)
-    private Miejsce miejsce;
+    private Miejsca miejsca;
 
 }
