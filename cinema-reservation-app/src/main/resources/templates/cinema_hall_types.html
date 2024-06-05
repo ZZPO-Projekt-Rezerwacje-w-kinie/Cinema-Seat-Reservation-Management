@@ -8,6 +8,28 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 </head>
 <body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Cinema Reservation</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/films">Films</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/cinemaHallTypes">Cinema Hall Types</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/cinemaHalls">Cinema Halls</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/seans">Seans</a>
+            </li>
+        </ul>
+    </div>
+</nav>
 <div th:switch="${halltypes}" class="container my-5">
     <div class="row">
         <div class="col-md-6">
