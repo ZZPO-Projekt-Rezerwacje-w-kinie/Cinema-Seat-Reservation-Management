@@ -46,10 +46,10 @@
         </div>
         <div class="row">
             <div class="form-group col-md-6">
-                <label for="sala">Sala</label>
+                <label for="sala">Hall</label>
                 <select id="sala" th:field="*{sala}" class="form-control" required>
                     <option value="">Choose a Hall</option>
-                    <option th:each="sala : ${sale}" th:value="${sala.id}" th:text="${sala.typSali.nazwa}">nazwa sali</option>
+                    <option th:each="sala : ${sale}" th:value="${sala.id}" th:text="'Hall number: ' + ${sala.id} + ' Type: ' + ${sala.typSali.nazwa}"> </option>
                 </select>
                 <span th:if="${#fields.hasErrors('sala.id')}" th:errors="*{sala.id}" class="text-danger"></span>
             </div>

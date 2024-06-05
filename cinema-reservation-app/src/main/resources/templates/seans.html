@@ -13,26 +13,26 @@
         <div class="col-md-6">
             <h2 th:case="null">No cinema seans found</h2>
             <div th:case="*">
-                <h2>Seans</h2>
+                <h2>Film Showing</h2>
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>Nazwa filmu</th>
-                        <th>data filmu</th>
-                        <th>nazwa sali</th>
+                        <th>Film title</th>
+                        <th>Hall number</th>
+                        <th>Date</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="seans1 : ${seans}">
                         <td th:text="${seans1.film.tytul}">tyttul filmu</td>
-                        <td th:text="${seans1.sala.typSali.nazwa}">nazwa sali</td>
+                        <td th:text="${seans1.sala.id}">nazwa sali</td>
                         <td th:text="${seans1.dataCzas}">data filmu</td>
                     </tr>
                     </tbody>
                 </table>
             </div>
-            <p class="my-5"><a href="/addSeansForm" class="btn btn-primary"><i class="fas fa-user-plus ml-2"></i></a></p>
-            <p class="my-5"><a href="/index" class="btn btn-secondary"><i class="fas fa-home ml-2"></i> Powrót do strony głównej</a></p>
+            <p class="my-5"><a href="/addSeansForm" class="btn btn-primary"><i class="fas fa-plus ml-2"></i></a></p>
+            <p class="my-5"><a href="/index" class="btn btn-secondary"><i class="fas fa-home ml-2"></i> Return to main page</a></p>
         </div>
     </div>
 </div>

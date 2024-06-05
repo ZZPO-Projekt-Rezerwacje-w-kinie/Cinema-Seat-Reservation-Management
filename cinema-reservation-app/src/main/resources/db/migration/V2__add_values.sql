@@ -13,10 +13,17 @@ INSERT INTO Film (tytul, opis, rok_produkcji, czas_trwania, kategoria) VALUES
 INSERT INTO Sala (adres_budynku, il_miejsc, il_rzedow, il_miejsc_w_rzedzie, id_typ_sali) VALUES
 ('123 Main St', 100, 10, 10, 1),
 ('123 Main St', 50, 5, 10, 2),
-('123 Main St', 200, 20, 10, 3);
+('123 Main St', 200, 10, 20, 3),
+('123 Main St', 100, 10, 10, 1),
+('123 Main St', 50, 5, 10, 1),
+('123 Main St', 200, 10, 20, 2);
 
 -- Dodanie przykładowych wartości do tabeli Seans
 INSERT INTO Seans (id_film, data_czas, id_sala) VALUES
+(2, '2024-06-10 17:00:00', 3),
 (1, '2024-06-10 19:00:00', 1),
 (2, '2024-06-11 20:00:00', 2),
-(3, '2024-06-12 21:00:00', 3);
+(3, '2024-06-12 21:00:00', 3),
+(1, '2024-06-10 19:00:00', 4),
+(1, '2024-06-11 20:00:00', 5),
+(3, '2024-06-12 21:00:00', 6);
