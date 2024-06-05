@@ -13,20 +13,20 @@
         <div class="col-md-6">
             <h2 th:case="null">No cinema hall found</h2>
             <div th:case="*">
-                <h2>Hall types</h2>
+                <h2>Cinema Halls</h2>
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th>adres budynku</th>
-                        <th>ilosc miejsc</th>
-                        <th>ilosc rzedow</th>
-                        <th>ilosc miejsc w rzedzie</th>
-                        <th>nazwa typu sali</th>
+                        <th>Hall number</th>
+                        <th>All seats</th>
+                        <th>Rows</th>
+                        <th>Seats in the row</th>
+                        <th>Hall type</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="hall : ${halls}">
-                        <td th:text="${hall.adres_budynku}">adres budynku</td>
+                        <td th:text="${hall.id}">id sali</td>
                         <td th:text="${hall.il_miejsc}">ilosc miejsc</td>
                         <td th:text="${hall.il_rzedow}">ilosc rzedow</td>
                         <td th:text="${hall.il_miejsc_w_rzedzie}">ilosc miejsc w rzedzie</td>
@@ -36,7 +36,7 @@
                 </table>
             </div>
 <!--            <p class="my-5"><a href="/addCinemaHallForm" class="btn btn-primary"><i class="fas fa-user-plus ml-2"></i></a></p>-->
-            <p class="my-5"><a href="/index" class="btn btn-secondary"><i class="fas fa-home ml-2"></i> Powrót do strony głównej</a></p>
+            <p class="my-5"><a href="/index" class="btn btn-secondary"><i class="fas fa-home ml-2"></i> Return to main page</a></p>
         </div>
     </div>
 </div>

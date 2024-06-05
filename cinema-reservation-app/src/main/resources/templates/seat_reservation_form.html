@@ -17,16 +17,16 @@
     <form action="/reservationSeat" method="post">
         <div class="row">
             <div class="form-group col-md-6">
-                <label class="col-form-label" for="seans">film</label>
+                <label class="col-form-label" for="seans">Showings</label>
                 <select name="seansId" class="form-control" id="seans">
-                    <option value="" disabled selected>Wybierz seans</option>
-                    <option th:each="seans : ${seanse}" th:value="${seans.id}" th:text="${seans.film.tytul}"></option>
+                    <option value="" disabled selected>Choose showing</option>
+                    <option th:each="seans : ${seanse}" th:value="${seans.id}" th:text="'Film title: ' + ${seans.film.tytul} + '; Hall number: ' + ${seans.sala.id} + '; Date: ' + ${seans.dataCzas}"></option>
                 </select>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6 mt-5">
-                <button type="submit" class="btn btn-primary">Wybierz seans</button>
+                <button type="submit" class="btn btn-primary">Select showing</button>
             </div>
         </div>
     </form>
