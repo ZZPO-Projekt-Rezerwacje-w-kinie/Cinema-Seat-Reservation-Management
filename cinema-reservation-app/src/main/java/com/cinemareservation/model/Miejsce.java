@@ -33,4 +33,12 @@ public class Miejsce {
 
     @OneToMany(mappedBy = "miejsce", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<NiedostepneMiejsca> niedostepneMiejsca;
+
+
+
+    public Miejsce(Seans seans, Integer rzad, Integer miejsceWRzedzie) {
+        this.seans = seans;
+        this.rzad = rzad;
+        this.miejsceWRzedzie = miejsceWRzedzie;
+    }
 }

@@ -1,7 +1,7 @@
 package com.cinemareservation.controller;
 
 import com.cinemareservation.model.Film;
-import com.cinemareservation.model.Miejsca;
+import com.cinemareservation.model.Miejsce;
 import com.cinemareservation.model.Sala;
 import com.cinemareservation.model.Seans;
 import com.cinemareservation.repository.CinemaHallRepository;
@@ -73,7 +73,7 @@ public class CinemaScreeningController {
         System.out.println(columnsNumber+"liczba miejsc w kolumie");
         for (int i = 0; i < rowsNumber; i++) {
             for (int j = 0; j < columnsNumber; j++) {
-                ciemaSeatRepository.save(new Miejsca(seans, i, j));
+                ciemaSeatRepository.save(new Miejsce(seans, i, j));
             }
         }
         return "redirect:/seans";
