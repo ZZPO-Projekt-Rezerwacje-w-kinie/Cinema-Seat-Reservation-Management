@@ -1,5 +1,6 @@
-package com.cinemareservation;
+package com.cinemareservation.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -11,10 +12,14 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    @Autowired
+    private AuthenticationSuccessHandler customAuthenticationSuccessHandler;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -23,7 +28,8 @@ public class SecurityConfig {
                         .anyRequest().authenticated() // All endpoints require authentication
                 )
                 .formLogin((form) -> form
-                        .loginPage("/login")  // Custom login page
+                        .loginPage("/login")
+                        .successHandler(customAuthenticationSuccessHandler)// Custom login page
                         .defaultSuccessUrl("/index", true)  // Redirect after successful login
                         .permitAll()  // Allow everyone to see the login page
                         .usernameParameter("login")  // Specify the name of the login field
