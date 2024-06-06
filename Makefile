@@ -1,3 +1,5 @@
+export PATH := /opt/maven/bin:$(PATH)
+
 prepare:
 	docker-compose up -d
 	bash wait.sh

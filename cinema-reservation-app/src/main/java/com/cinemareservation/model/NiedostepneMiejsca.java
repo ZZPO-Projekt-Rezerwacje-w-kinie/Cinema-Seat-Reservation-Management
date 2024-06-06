@@ -10,7 +10,7 @@ import lombok.*;
 @Getter
 
 @Entity
-@Table(name = "Niedostepne_Miejsca")
+@Table(name = "niedostepne_miejsca")
 public class NiedostepneMiejsca {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,6 +22,5 @@ public class NiedostepneMiejsca {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_miejsca", nullable = false)
-    private Miejsca miejsca;
-
+    private Miejsca miejsca; // Upewnij się, że nazwa to 'miejsca'
 }
