@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edytuj Film</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-5">
+    <h2>Edytuj Film</h2>
+    <form th:action="@{'/updateFilm/' + ${film.id}}" th:object="${film}" method="post">
+        <div class="form-group">
+            <label for="tytul">Tytuł</label>
+            <input type="text" id="tytul" th:field="*{tytul}" class="form-control" required/>
+            <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('tytul')}" th:errors="*{tytul}">Błąd w tytule</div>
+        </div>
+        <div class="form-group">
+            <label for="rokProdukcji">Rok produkcji</label>
+            <input type="number" id="rokProdukcji" th:field="*{rokProdukcji}" class="form-control" required/>
+            <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('rokProdukcji')}" th:errors="*{rokProdukcji}">Błąd w roku produkcji</div>
+        </div>
+        <div class="form-group">
+            <label for="czasTrwania">Czas trwania</label>
+            <input type="number" id="czasTrwania" th:field="*{czasTrwania}" class="form-control" required/>
+            <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('czasTrwania')}" th:errors="*{czasTrwania}">Błąd w czasie trwania</div>
+        </div>
+        <div class="form-group">
+            <label for="kategoria">Kategoria</label>
+            <input type="text" id="kategoria" th:field="*{kategoria}" class="form-control" required/>
+            <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('kategoria')}" th:errors="*{kategoria}">Błąd w kategorii</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+        <a th:href="@{/films}" class="btn btn-secondary">Anuluj</a>
+    </form>
+</div>
+</body>
+</html>

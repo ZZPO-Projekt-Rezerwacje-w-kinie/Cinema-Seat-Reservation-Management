@@ -10,4 +10,6 @@ import java.util.List;
 public interface CinemaSeatRepository extends JpaRepository<Miejsca, Integer> {
 
     List<Miejsca> findAllBySeansId(int seansId);
+
+    List<Miejsca> findBySeansId(Integer id);
 }
