@@ -31,13 +31,13 @@
                         <td th:text="${film.czasTrwania}">Czas trwania</td>
                         <td th:text="${film.kategoria}">Kategoria</td>
                         <td>
-                            <a th:href="@{'/editFilm/' + ${film.id}}" class="btn btn-primary btn-sm">
-                                <i class="fas fa-edit"></i> Edytuj
+                            <a th:href="@{'/editFilm/' + ${film.id}}" class="btn btn-warning btn-sm">
+                                <i class="fas fa-edit"></i>
                             </a>
                             <form th:action="@{'/deleteFilm/' + ${film.id}}" method="post" style="display:inline;">
                                 <input type="hidden" name="_method" value="delete"/>
                                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Czy na pewno chcesz usunąć ten film?');">
-                                    <i class="fas fa-trash"></i> Usuń
+                                    <i class="fas fa-trash"></i>
                                 </button>
                             </form>
                         </td>
