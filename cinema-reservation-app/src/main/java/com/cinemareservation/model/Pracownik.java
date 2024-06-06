@@ -30,4 +30,11 @@ public class Pracownik {
     @Column(nullable = false, unique = true)
     private String email;
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getHaslo() {
+        return haslo;
+    }
 }
