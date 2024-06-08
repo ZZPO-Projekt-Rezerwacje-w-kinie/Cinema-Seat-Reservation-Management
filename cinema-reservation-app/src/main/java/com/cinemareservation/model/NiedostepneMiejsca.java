@@ -24,4 +24,15 @@ public class NiedostepneMiejsca {
     @JoinColumn(name = "id_miejsca", nullable = false)
     private Miejsca miejsca;
 
+    public void setMiejsca(Miejsca miejsca) {
+        this.miejsca = miejsca;
+    }
+
+    public void setSeansu(Seans seans) {
+        this.seans = seans;
+    }
+
+    public int getId() {
+        return miejsca.getId();
+    }
 }

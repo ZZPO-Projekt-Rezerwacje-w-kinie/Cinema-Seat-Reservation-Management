@@ -1,57 +1,78 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Rezerwacja miejsc</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <title>Cinema Hall</title>
     <style>
-        body, html {
-            height: 100%;
-            background-color: #ffffff;
-        }
-        .seat-button {
-            background-color: #007bff;
-            border: none;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            text-decoration: none;
+        .seat {
+            width: 30px;
+            height: 30px;
+            margin: 5px;
+            background-color: grey;
+            border-radius: 5px;
             display: inline-block;
-            font-size: 16px;
-            margin: 4px 2px;
-            border-radius: 12px;
+            text-align: center;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        .seat.taken {
+            background-color: orange;
+            cursor: not-allowed;
+        }
+        .seat.selected {
+            background-color: green;
+        }
+        .screen {
+            margin: 20px auto;
+            width: 80%;
+            height: 50px;
+            background-color: darkgrey;
+            text-align: center;
+            line-height: 50px;
+        }
+        .seat-container {
+            text-align: center;
+            margin-top: 20px;
         }
         .seat-row {
             display: flex;
             justify-content: center;
         }
-        .seat-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .screen {
-            width: 80%;
-            height: 20px;
-            background-color: #cccccc;
-            margin-bottom: 20px;
-            border-radius: 10px;
-        }
-        .seat-button:hover {
-            background-color: #0056b3;
-        }
     </style>
+    <script>
+        function selectSeat(seatId) {
+            var seat = document.getElementById(seatId);
+            if (!seat.classList.contains('taken')) {
+                seat.classList.toggle('selected');
+            }
+        }
+        function submitReservation() {
+            var selectedSeats = [];
+            document.querySelectorAll('.seat.selected').forEach(function(seatElement) {
+                selectedSeats.push(seatElement.id);
+            });
+            document.getElementById('selectedSeatsInput').value = selectedSeats.join(',');
+            document.getElementById('reservationForm').submit();
+        }
+    </script>
 </head>
 <body>
-<div class="container-fluid seat-container">
-    <div class="screen"></div>
-    <div th:each="row : ${#numbers.sequence(1, rowsNumber)}" class="seat-row">
-        <div th:each="seat : ${#numbers.sequence(1, seatInRow)}">
-            <button class="seat-button">[[${seat}]]</button>
+<div class="screen">SCREEN</div>
+<div class="seat-container" th:each="row : ${#numbers.sequence(1, rowsNumber)}">
+    <div class="seat-row">
+        <div th:each="col : ${#numbers.sequence(1, seatInRow)}" class="seat"
+             th:classappend="${takenSeats.contains((row-1)*10+col) ? 'taken' : ''}"
+             th:id="${(row-1)*10+col}"
+             th:onclick="|selectSeat(${(row-1)*10+col})|">
+            <span th:text="${(row-1)*10+col}">1</span>
         </div>
     </div>
 </div>
+
+<form id="reservationForm" th:action="@{/submitReservation}" method="post">
+    <input type="hidden" name="seansId" th:value="${seansId}" />
+    <input type="hidden" id="selectedSeatsInput" name="selectedSeats" />
+    <button type="button" onclick="submitReservation()">Reserve</button>
+</form>
 </body>
 </html>
