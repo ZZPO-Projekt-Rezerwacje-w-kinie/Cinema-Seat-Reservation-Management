@@ -24,14 +24,14 @@ public class CinemaScreeningController {
     private final SeansRepository seansRepository;
     private final FilmRepository filmRepository;
     private final CinemaHallRepository cinemaHallRepository;
-    private final CinemaSeatRepository ciemaSeatRepository;
+    private final CinemaSeatRepository cinemaSeatRepository;
 
     @Autowired
     public CinemaScreeningController(SeansRepository seansRepository, FilmRepository filmRepository, CinemaHallRepository cinemaHallRepository, CinemaSeatRepository cinemaSeatRepository) {
         this.seansRepository = seansRepository;
         this.filmRepository = filmRepository;
         this.cinemaHallRepository = cinemaHallRepository;
-        this.ciemaSeatRepository = cinemaSeatRepository;
+        this.cinemaSeatRepository = cinemaSeatRepository;
     }
 
     @GetMapping("/seans")
@@ -67,12 +67,12 @@ public class CinemaScreeningController {
         seansRepository.save(seans);
         Sala sala = seans.getSala();
         int rowsNumber = sala.getRowsNumber();
-        Integer columnsNumber = sala.getColumnsNumber();
+        int columnsNumber = sala.getColumnsNumber();
         System.out.println(rowsNumber+"liczba miejsc w rzedzie");
         System.out.println(columnsNumber+"liczba miejsc w kolumie");
         for (int i = 0; i < rowsNumber; i++) {
             for (int j = 0; j < columnsNumber; j++) {
-                ciemaSeatRepository.save(new Miejsca(seans, i, j));
+                cinemaSeatRepository.save(new Miejsca(seans, i, j));
             }
         }
         return "redirect:/seans";
