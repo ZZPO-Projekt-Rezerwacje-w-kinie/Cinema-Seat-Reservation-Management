@@ -28,4 +28,14 @@ public class Miejsca {
         this.miejsce_w_rzedzie = j;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public Integer getRzad() {
+        return rzad;
+    }
+    public Integer getMiejsce_w_rzedzie() {
+        return miejsce_w_rzedzie;
+    }
 }
