@@ -27,3 +27,8 @@ INSERT INTO Seans (id_film, data_czas, id_sala) VALUES
 (1, '2024-06-10 19:00:00', 4),
 (1, '2024-06-11 20:00:00', 5),
 (3, '2024-06-12 21:00:00', 6);
+
+INSERT INTO Pracownik (imie, haslo, data_zatrudnienia, email) VALUES
+('Jan', 'password1', '2020-01-15', 'jan@example.com'),
+('Anna', 'password2', '2019-03-22', 'anna@example.com'),
+('Marek', 'password5', '2022-02-25', 'marek@example.com');

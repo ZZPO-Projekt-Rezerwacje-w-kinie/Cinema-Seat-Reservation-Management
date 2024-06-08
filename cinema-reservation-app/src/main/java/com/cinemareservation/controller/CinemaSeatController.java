@@ -42,8 +42,6 @@ public class CinemaSeatController {
         int seatInRow = sala.getColumnsNumber();
         model.addAttribute("rowsNumber", rowsNumber);
         model.addAttribute("seatInRow", seatInRow);
-        //chciałbym abys storzyl liste z wszytkimi miejscami z tabeli Miejsca dla ktore sa zwiazne z id tego seansu
-        //i przekazal ja do modelu
         List<Miejsca> miejsca = cinemaSeatRepository.findAllBySeansId(seansId);
         System.out.println(miejsca.size());
 
