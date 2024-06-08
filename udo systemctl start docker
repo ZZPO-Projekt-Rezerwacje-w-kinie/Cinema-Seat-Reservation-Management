@@ -1,0 +1,18 @@
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: inactive (dead) since Tue 2024-06-04 18:57:42 CEST; 2min 9s ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+    Process: 7365 ExecStart=/usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock (code=exited, status=0/SUCCESS)
+   Main PID: 7365 (code=exited, status=0/SUCCESS)
+
+cze 04 18:57:16 University systemd[1]: Started Docker Application Container Engine.
+cze 04 18:57:32 University dockerd[7365]: time="2024-06-04T18:57:32.253755903+02:00" level=info msg="No non-localhost DNS nameservers are left in resolv.conf. Using default external servers"
+cze 04 18:57:32 University dockerd[7365]: time="2024-06-04T18:57:32.301041329+02:00" level=warning msg="Failed to allocate and map port 5432-5432: Error starting userland proxy: listen tcp4 0.0.0.0:5432: bind: address already in use"
+cze 04 18:57:32 University dockerd[7365]: time="2024-06-04T18:57:32.429290415+02:00" level=error msg="Handler for POST /v1.43/containers/a1affe90b3e2dee1074ad2152261fc7b5d8d7f8ba6b16c5bf1dba74bbdb988cd/start returned error: driver failed programming external connectivity on endpoint postgresql (60ddd430966550429b9a0dd1de3298067275b75c11b307b5dfb599786f4a0177): Error starting userland proxy: listen tcp4 0.0.0.0:5432: bind: address already in use" spanID=383ae50d9dc0d7f0 traceID=952c38db2f92d03e637347ef65a896cc
+cze 04 18:57:42 University systemd[1]: Stopping Docker Application Container Engine...
+cze 04 18:57:42 University dockerd[7365]: time="2024-06-04T18:57:42.411011744+02:00" level=info msg="Processing signal 'terminated'"
+cze 04 18:57:42 University dockerd[7365]: time="2024-06-04T18:57:42.412671881+02:00" level=info msg="stopping event stream following graceful shutdown" error="<nil>" module=libcontainerd namespace=moby
+cze 04 18:57:42 University dockerd[7365]: time="2024-06-04T18:57:42.413982167+02:00" level=info msg="Daemon shutdown complete"
+cze 04 18:57:42 University systemd[1]: docker.service: Succeeded.
+cze 04 18:57:42 University systemd[1]: Stopped Docker Application Container Engine.

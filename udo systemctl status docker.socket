@@ -1,0 +1,21 @@
+[0;1;32m●[0m docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Mon 2024-06-03 23:54:13 CEST; 4s ago
+TriggeredBy: [0;1;32m●[0m docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 8413 (dockerd)
+      Tasks: 10
+     Memory: 29.5M
+     CGroup: /system.slice/docker.service
+             └─8413 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+cze 03 23:54:13 University dockerd[8413]: time="2024-06-03T23:54:13.505669877+02:00" level=info msg="Starting up"
+cze 03 23:54:13 University dockerd[8413]: time="2024-06-03T23:54:13.509125244+02:00" level=info msg="detected 127.0.0.53 nameserver, assuming systemd-resolved, so using resolv.conf: /run/systemd/resolve/resolv.conf"
+cze 03 23:54:13 University dockerd[8413]: time="2024-06-03T23:54:13.596584036+02:00" level=info msg="[graphdriver] using prior storage driver: overlay2"
+cze 03 23:54:13 University dockerd[8413]: time="2024-06-03T23:54:13.597511313+02:00" level=info msg="Loading containers: start."
+cze 03 23:54:13 University dockerd[8413]: time="2024-06-03T23:54:13.678425490+02:00" level=info msg="Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP address"
+cze 03 23:54:13 University dockerd[8413]: time="2024-06-03T23:54:13.705037154+02:00" level=info msg="Loading containers: done."
+cze 03 23:54:13 University dockerd[8413]: time="2024-06-03T23:54:13.715585616+02:00" level=info msg="Docker daemon" commit=8e96db1 containerd-snapshotter=false storage-driver=overlay2 version=26.1.3
+cze 03 23:54:13 University dockerd[8413]: time="2024-06-03T23:54:13.715618550+02:00" level=info msg="Daemon has completed initialization"
+cze 03 23:54:13 University dockerd[8413]: time="2024-06-03T23:54:13.751205013+02:00" level=info msg="API listen on /run/docker.sock"
+cze 03 23:54:13 University systemd[1]: Started Docker Application Container Engine.

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Edytuj Seans</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+</head>
+<body>
+<div class="container my-5">
+    <h2>Edytuj Seans</h2>
+    <form th:action="@{'/updateSeans/' + ${seans.id}}" th:object="${seans}" method="post">
+        <div class="form-group">
+            <label for="film">Film</label>
+            <select id="film" th:field="*{film.id}" class="form-control" required>
+                <option th:each="film : ${films}" th:value="${film.id}" th:text="${film.tytul}">Film Title</option>
+            </select>
+            <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('film')}" th:errors="*{film}">Błąd w wyborze filmu</div>
+        </div>
+        <div class="form-group">
+            <label for="sala">Sala</label>
+            <select id="sala" th:field="*{sala.id}" class="form-control" required>
+                <option th:each="sala : ${sale}" th:value="${sala.id}" th:text="${sala.id}">Numer sali</option>
+            </select>
+            <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('sala')}" th:errors="*{sala}">Błąd w wyborze sali</div>
+        </div>
+        <div class="form-group">
+            <label for="dataCzas">Data i czas</label>
+            <input type="datetime-local" id="dataCzas" th:field="*{dataCzas}" class="form-control" required/>
+            <div class="invalid-feedback d-block" th:if="${#fields.hasErrors('dataCzas')}" th:errors="*{dataCzas}">Błąd w dacie i czasie</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+        <a th:href="@{/seans}" class="btn btn-secondary">Anuluj</a>
+    </form>
+</div>
+</body>
+</html>
