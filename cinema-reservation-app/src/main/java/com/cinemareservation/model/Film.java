@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
 @Entity
-@Table(name = "Film")  // Ensure this matches the actual table name in your database
+@Table(name = "film")  // Ensure this matches the actual table name in your database
 public class Film {
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "film_generator")

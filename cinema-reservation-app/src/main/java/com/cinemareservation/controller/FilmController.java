@@ -62,20 +62,17 @@ public class FilmController {
     }
 
     @PostMapping("/updateFilm/{id}")
-    public String updateFilm(@PathVariable("id") Long id, @Valid Film film, BindingResult result, Model model) {
+    public String updateFilm(@PathVariable("id") Long id, @Valid Film film, BindingResult result) {
         if (result.hasErrors()) {
-            model.addAttribute("film", film);
+            film.setId(id);
             return "edit_film";
         }
-        Optional<Film> existingFilm = filmRepository.findById(id);
-        if (existingFilm.isPresent()) {
-            Film updatedFilm = existingFilm.get();
-            updatedFilm.setTytul(film.getTytul());
-            updatedFilm.setRokProdukcji(film.getRokProdukcji());
-            updatedFilm.setCzasTrwania(film.getCzasTrwania());
-            updatedFilm.setKategoria(film.getKategoria());
-            filmRepository.save(updatedFilm);
-        }
+        Film existingFilm = filmRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Invalid film Id:" + id));
+        existingFilm.setTytul(film.getTytul());
+        existingFilm.setRokProdukcji(film.getRokProdukcji());
+        existingFilm.setCzasTrwania(film.getCzasTrwania());
+        existingFilm.setKategoria(film.getKategoria());
+        filmRepository.save(existingFilm);
         return "redirect:/films";
     }
 
